@@ -1,0 +1,920 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+/*container is top/bottom*/
+/*row is left/right*//**/
+*{
+    font-family: 'Lato', sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html{
+    /*for footer when clicking on my logo the scroll back up is smooth*/
+    scroll-behavior: smooth;
+}
+
+.title{
+    font-size: 120px;
+    margin-bottom: 12px;
+    text-align: left;
+    line-height:1;
+    font-weight: bold;   
+}
+
+.orange{
+    color:#DCAD11;
+}
+
+p{
+    line-height: 1.5;
+    font-size: 16px;
+}
+
+a{
+    text-decoration: none;
+    position: relative;
+    transition: opacity 300ms ease;
+}
+
+input, textarea{
+    width: 100%;
+    background-color: #242424;
+    color: white;
+    outline: none;
+    border:3px solid #c0c4cc;
+    border-top:none;
+    border-left:none;
+    border-right:none;
+    height: 40px;
+}
+
+textarea{
+    resize: vertical;
+    height: 100px;
+    margin-top: 6px;
+}
+
+label{
+    font-weight: bold;
+}
+
+input:hover, textarea:hover{
+    border-color: #dcdfe6;
+}
+
+input:focus, textarea:focus{
+    border-color: #f06449;
+}
+
+button{
+    cursor: pointer;
+}
+
+.click{
+    cursor: pointer;
+    transition: all 300ms ease;
+}
+
+.click:hover{
+    transform: scale(1.1);
+}
+
+.click:active{
+    transform: scale(0.8);
+}
+
+
+.link__hover-effect:after{
+    content:"";
+    /*so it doesnt affect anything around it*/
+    position: absolute;
+    height:3px;
+    width:0;
+    /*send to the bottom of its parent*/
+    bottom:-3px;
+    /*aligns the underscores with the right word*/
+    right: 0;
+    transition:all 300ms ease;
+}
+
+.link__hover-effect--black:after{
+    background-color:rgb(3, 3, 3);
+}
+
+.link__hover-effect--white:after{
+    background-color:rgb(3, 3, 3);
+}
+
+.link__hover-effect:hover:after{
+    width:100%;
+    /*starts at left prior to the hover and goes to the right to finish off*/
+    left:0;
+}
+
+/*when the modal is closing, it fades everything in 600ms*/
+.modal--open nav,
+.modal--open .scroll,
+.modal--open .header{
+    opacity: 0;
+    visibility: hidden;
+    transition: all 400ms /*delay*/200ms;
+}
+
+/*when the modal is closing, it fades everything in 600ms*/
+nav,
+.scroll,
+.header{
+    opacity: 1;
+    visibility: visible;
+    transition: all 600ms /*delay*/800ms;
+}
+
+/*target every single class we are trying to contrast after pressing the button*/
+.dark-theme .title__second{
+    color: #DCAD11;
+}
+
+.dark-theme .title__first,
+.dark-theme .section__title,
+.dark-theme .section__sub-title,
+.dark-theme .nav__link--anchor,
+.dark-theme .fa-adjust,
+.dark-theme .header__para
+{
+    color: white;
+}
+
+.dark-theme section{
+    background-color:#242424;
+}
+
+
+.dark-theme section {
+  background-color: #242424;
+}
+.dark-theme #personal-logo {
+  filter: none;
+}
+.dark-theme .scroll__icon {
+  border-color: white;
+}
+.dark-theme .scroll__icon:after,
+.dark-theme .link__hover-effect--black:after {
+  background-color: white;
+}
+.dark-theme .mail__btn {
+  background-color: white;
+  color: #242424;
+}
+
+/*
+
+LANDING PAGE
+
+*/
+
+#landing-page{
+    height: 100vh;
+    
+}
+/**/
+.header{
+    z-index: 1;
+    position: absolute;
+    /*the following 3 lines puts my code in the center of my landing section*/
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    /*always putting 100% in order to have no trouble with resizing*/
+    width: 100%;
+    max-width: 1000px;
+    padding: 0 30px;
+    margin-top: 20px;
+}
+
+.header__para{
+    font-size: 36px;
+    line-height: 1.5;
+    /*so it doesnt span the whole page*/
+    max-width: 650px;
+
+}
+
+.social__list{
+    margin-top: 16px;
+    display: flex;
+}
+
+.social__link{
+    background-color: #DCAD11;
+    color: white;
+    padding: 20px 30px;
+    width: 32px;
+    font-size: 24px;
+    margin-right: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    
+}
+
+.mail__btn{
+    width:70px;
+    height: 70px;
+    font-size: 32px;
+    border: none;
+    border-radius: 50%;
+    background-color: #242424;
+    color: white;
+    position: absolute;
+    bottom: 32px;
+    right: 48px;
+    /*goes over everything in its way*/
+    z-index: 100;
+    /*no matter where we are on the website, the mail btn will always be btm right*/
+    position: fixed;
+}
+
+.mail__btn:hover{
+    color: white;
+}
+
+.scroll{
+    /*position absolute because we dont want it ruining other elements*/
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    /*always use transform with position absolute*/
+    transform: translateX(-50%);
+}
+
+.scroll__icon{
+    width: 20px;
+    height: 30px;
+    border: 2px solid #242424;
+    border-radius: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.scroll__icon:after{
+    /*because its a pseudo element, set content:""*/
+    content: "";
+    width: 4px;
+    height: 6px;
+    background-color: #242424;
+    /*make the scroll button more of a circle*/
+    border-radius: 2px;
+    /*use the scroll @keyframe class that we made in order to make this smooth transition*/
+    animation: scroll 1000ms infinite alternate-reverse;
+}
+
+@keyframes scroll{
+    0%{
+        transform: translateY(3px);
+    }
+    100%{
+        transform: translateY(-3px);
+    }
+}
+/*
+
+NAVIGATION BAR 
+.
+*/
+
+nav{
+    height: 100px;
+    width: 100%;
+    max-width: 1600px;
+    margin: 0 auto;
+    display: flex;
+    /*center to both sides of the page*/
+    justify-content: space-between;
+    align-items: center;
+    padding: 0px 20px;
+}
+
+li{
+    /*removes bullet points*/
+    list-style-type:none;
+}
+
+/*catches the entire height of the page*/
+.flex-1{
+    flex:1;
+}
+
+.flex{
+    display: flex;
+    background-color: white;
+}
+
+.nav__link--list{
+    display:flex;
+}
+
+.nav__link{
+    margin: 0 12px;
+}
+
+.nav__link--anchor{
+   
+    color: #020202;
+    /*remove underline*/
+    text-decoration: none;
+    /*from our imports at the top*/
+    font-weight: 700;
+    font-size: 22px;
+}
+/*
+.nav__link--anchor-primary{
+    background-color: #6030b1;
+    border-radius: 50px;
+    padding: 10px 8px;
+    color: rgb(255, 255, 255);
+    /*makes hover transition really smooth*/
+   /* transition: all 300ms ease;*/
+
+
+/*changes the color using :hover when hovering over this link
+.nav__link--anchor-primary:hover{
+    background-color: #de2ed8;
+}
+*/
+
+.nav__logo--mask{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
+}
+
+.nav__logo{
+    width: 80px;
+    height: 80px;
+    margin-top: 24px;
+    margin-left: 20px;
+    border-radius: 40px;
+}
+
+/* clean center for the about me info*/
+.row{
+    width:100%;
+    max-width: 1200px;
+    margin:0 auto;
+    padding: 0 12px;
+}
+
+/* every second section will have a background color of gray
+section:nth-child(even){
+    background-color: #b3b3b3;
+}
+*/ 
+
+.container{
+    padding: 50px 0;
+    width: 100%;
+}   
+
+/*
+
+MODAL
+
+*/
+
+.modal{
+    /*use the position absolute method (following 4 lines - so it centers and doesnt
+    affects anything*/
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 90%;
+    max-width: 1100px;
+    height: 700px;
+    /*hides the box box-shadow*/
+    visibility: hidden;
+    /*for when we create the 2 different isles*/
+    overflow: hidden;
+    /*brings the 2 modal halves side by side*/
+    display: flex;
+    /*makes the open modal transition smooth and no lag*/
+    visibility: hidden;
+    z-index: -1;
+    transition: visibility 1s, z-index 1s, box-shadow 0.5s ease;
+}
+
+.modal--open .modal{
+    z-index: 60;
+    box-shadow: 0 20px 80px 0 rgb(0,0,0,0.55);
+    visibility: visible;
+}
+
+.modal__half{
+    /*seperates them on both sides of the modal*/
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*makes the loading image relative to the right half*/
+    position: relative;
+    transition: all 300ms ease;
+
+}
+
+.modal--open .modal__about,
+.modal--open .modal__contact{
+    transform: translateX(0%);
+}
+
+.modal__about{
+    background-color:rgb(245, 245, 245);
+    padding: 24px 72px;
+    transform: translateX(-100%);
+}
+
+.modal__contact{
+    background-color: #242424;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    padding: 24px 72px;
+    transform: translateX(110%);
+    
+}
+
+.form__submit{
+    padding: 14px 22px;
+    background-color: rgb(240, 88, 18);
+    border: 2px solid rgb(240,88,18);
+    width: 100%;
+    max-width: 230px;
+    font-size: 24px;
+    font-weight: 700;
+    color: white;
+    transition: all 300ms ease;
+}
+
+.form__submit:hover{
+    border-color: white;
+    background-color: transparent;
+}
+
+/*right when you press the button this is how it looks like*/
+.form__submit:active{
+    border-color: rgb(240, 88, 18);
+    color: rgb(240,88,18);
+}
+
+.modal__languages{
+    display: flex;
+    /*starts a new row instead of going all the way accross*/
+    flex-wrap: wrap;
+}
+
+.modal__language{
+    width: 25%;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: all 300ms ease;
+
+}
+.language__name{
+    margin-top: 8px;
+    transform: scale(0);
+    transition: all 300ms ease;
+}
+
+.modal__language:hover .language__name{
+    transform: scale(1);
+}
+
+/*since we are targetting just model language we dont need to target anything after*/
+.modal__language:hover{
+    filter: brightness(80%);
+    transform: scale(0.9);
+}
+
+
+
+.modal__language--img{
+    /*set the width to 100% so it looks organized and shrinks in size*/
+    width: 100%;
+}
+
+.modal__title{
+    font-size: 30px;
+}
+
+.modal__subtitle{
+    font-size: 20px;
+    margin: 12px 0 24px 0;
+}
+
+.modal__para{
+    font-size: 20px;
+    margin-bottom: 20px;
+    line-height: 1.75;
+}
+
+.form__item{
+    margin-bottom: 24px;
+}
+
+.modal__overlay--loading{
+    background-color: #242424;
+    position: absolute;
+    /*doesnt make sense now but it will after we make it relative to its parent*/
+    top: 0;
+    left:0;
+    /* covers the whole right side of the form, and makes it centered*/
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 80px;
+    /*hides the spinner*/
+    z-index: -1;
+}
+
+/*to make the spinner rotate*/
+.fa-spinner{
+    animation: spinner 750ms infinite;
+}
+
+@keyframes spinner{
+    0%{
+        transform: rotate(0);
+    }
+    100%{
+        transform: rotate(360deg);
+    }
+}
+/*this goes for every overlay class we set so far*/
+.modal__overlay{
+    position: absolute;
+    /*doesnt make sense now but it will after we make it relative to its parent*/
+    top: 0;
+    left:0;
+    /* covers the whole right side of the form, and makes it centered*/
+    width: 100%;
+    height: 100%;
+    /*we dont want to show it all before its clicked*/
+    display: none;
+    justify-content: center;
+    align-items: center;
+    z-index: -1;
+}
+
+.modal__overlay--success{
+    background-color: #4bb543;
+    font-size:40px;
+    font-weight: 700;
+    text-align:center;
+    padding: 28px;
+}
+
+/*makes the overlay visible*/
+.modal__overlay--visible{
+    /*by default its z-index=-1*/
+    z-index:1;
+    display: flex;
+}
+
+.modal__exit{
+    position: absolute;
+    top: 30px;
+    right: 40px;
+    color: white;
+    font-size: 36px;
+    /*make sure its infront of everyhting no matter what*/
+    z-index: 100;
+}
+
+/*
+
+PROJECTS 
+
+*/
+
+.section__title{
+    text-align: center;
+    margin-bottom: 60px;
+    font-size: 48px;
+}
+
+.project{
+    margin-bottom: 135px;
+    max-width: 1000px;
+}
+
+.project-3{
+    margin-bottom: 135px;
+    max-width: 1000px;
+    border: 0.5px solid;
+    border-radius: 20px;
+
+}
+
+.project__img{
+    width: 100%;
+    transition: all 600ms ease;
+
+}
+
+.project__wrapper{
+    position: relative;
+    border-radius: 20px;
+    box-shadow: 0 20px 80px 0 black(0,0,0,0.45);
+    /*shows the border radius*/
+    overflow: hidden;
+   
+}
+
+.project__wrapper:hover .project__description{
+    opacity: 1;
+    transform: translateY(-50%);
+}
+
+.project__wrapper:hover .project__img{
+    /*zooms in the background image alittle*/
+    transform: scale(1.07);
+    /*blurs the background image*/
+    filter: blur(5px);
+}
+
+.project__wrapper:hover .project__wrapper--bg{
+    opacity: 0.8;
+}
+
+.project__description{
+    /*so it doesnt affect anything*/
+    position: absolute;
+    left: 90px;
+    /*when ever you do top 50%, do translateY(-50%)
+    but in this case its translatey(100%) because
+    we translateY(-50%) on the hover, this creates
+    an up and down affect*/
+    top: 50%;
+    transform: translateY(100%);
+    opacity: 0;
+    transition:opacity 300ms,transform 450ms ease;
+    color: white;
+    max-width: 700px;
+}
+
+.project__wrapper--bg{
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #1c1d25;
+    opacity: 0;
+    transition: all 1000ms ease;
+
+}
+
+.project__description--title{
+    font-size: 60px;
+}
+
+.project__description--sub-title{
+    margin: 8px 0;
+    font-size: 30px;
+}
+
+.project__description--link{
+    color: white;
+    font-size: 20px;
+    margin-right: 16px;
+}
+
+.project__description--para{
+    margin: 24px 0;
+    font-size: 24px;
+}
+
+.project__list{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+/*
+
+FOOTER
+
+*/
+
+footer{
+    background-color: #242424;
+    /*puts it above our shapes*/
+    position: relative;
+}
+
+.footer__row{
+    padding: 4% 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.footer__logo--img{
+    width: 70px;
+    height: 70px;
+}
+
+.footer__social--list{
+    margin-bottom: 28px;
+    width:100%;
+    display: flex;
+    justify-content: space-around;
+    max-width: 505px;
+
+}
+
+.footer__social--link,
+.footer__copyright,
+.footer__logo--popper{
+    color: white;
+    text-decoration: none;
+}
+
+.footer__logo--popper{
+    /*to escape it from its parent*/
+    position: absolute;
+    right: 0;
+    /*aligns the popper right behind the logo*/
+    top: 30px;
+    font-weight: 700;
+    opacity: 0;
+    transition: all 300ms ease;
+}
+
+.footer__anchor{
+    /* moves relative to its parent (right under)*/
+    position: relative;
+    margin-bottom:20px;
+}
+
+/*when hovering over the footer anchor (poppers parent) do something to the popper*/
+.footer__anchor:hover .footer__logo--popper{
+    transform: translateX(60px);
+    opacity: 1;
+}
+
+/*
+
+SHAPES
+    shapes on the first row,
+    top = 15vh
+
+    shapes on the second row,
+    top = 50vh
+
+    shapes on the third row,
+    top = 80vh
+
+    shapes on the first column,
+    left = 5vw
+
+    shapes on the second column,
+    left = 50vw
+
+    shapes on the third column,
+    left = 80vw
+*/
+
+.shape{
+    /*when we scroll the shapes will stay on the users screen the whole time*/
+   position: fixed;
+   opacity: 0.5;
+}
+
+.shape--0{
+    top: 15vh;
+    left: 5vw;
+    width: 50px;
+    filter: invert(61%) sepia(73%) saturate(467%) hue-rotate(354deg) brightness(93%) contrast(94%);
+}
+
+.shape--1{
+    top: 15vh;
+    left: 50vw;
+    width: 50px;
+    filter: invert(30%) sepia(96%) saturate(1082%) hue-rotate(202deg) brightness(108%) contrast(110%);
+}
+
+.shape--2{
+    top: 15vh;
+    left: 80vw;
+    width: 50px;
+    filter: invert(69%) sepia(55%) saturate(1659%) hue-rotate(137deg) brightness(104%) contrast(104%);
+}
+
+.shape--3{
+    top: 50vh;
+    left: 5vw;
+    width: 50px;
+    filter: invert(69%) sepia(55%) saturate(1659%) hue-rotate(137deg) brightness(104%) contrast(104%);
+}
+
+.shape--5{
+    top: 50vh;
+    left: 80vw;
+    width: 50px;
+    filter: invert(69%) sepia(73%) saturate(467%) hue-rotate(354deg) brightness(93%) contrast(94%);
+}
+
+.shape--6{
+    top: 80vh;
+    left: 5vw;
+    width: 50px;
+    filter: invert(69%) sepia(73%) saturate(467%) hue-rotate(354deg) brightness(93%) contrast(94%);
+}
+
+.shape--7{
+    top: 80vh;
+    left: 50vw;
+    width: 50px;
+    filter: invert(30%) sepia(96%) saturate(1082%) hue-rotate(202deg) brightness(108%) contrast(110%);
+}
+
+.shape--8{
+    top: 80vh;
+    left: 80vw;
+    width: 50px;
+    filter: invert(69%) sepia(55%) saturate(1659%) hue-rotate(137deg) brightness(104%) contrast(104%);
+}
+
+/*small phones, tablets, large smartphones*/
+@media (max-width: 768px){
+    .title{
+        font-size: 86px;
+    }
+
+    .header__para{
+        font-size: 28px;
+    }
+
+    .modal{
+        top:0;
+        left:0;
+        transform: none;
+        height: auto;
+        width: 100%;
+        flex-direction: column;
+        flex-direction: column-reverse;
+        border-radius: 0;
+    }
+
+    .modal__half{
+        width: 100%;
+    }
+}
+/**/
+/*small phones */
+@media(max-width: 600px){
+    .title{
+        font-size: 68px;
+    }
+
+    .header__para{
+        font-size: 18px;
+    }
+
+    .nav__link:first-child{
+        display: none;
+    }
+
+    .project__description--para{
+        display: none;
+    }
+
+    .project__description{
+        left: 0;
+        padding:0;
+        width: 100%;
+        text-align: center;
+    }
+
+    .project__description--sub-title{
+        margin-bottom: 8px;
+    }
+
+    .modal__half{
+        padding: 40px;
+    }
+
+}
