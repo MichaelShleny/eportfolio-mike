@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 /*container is top/bottom*/
-/*row is left/right*/
+/*row is left/right*//* m*/
 *{
     font-family: 'Lato', sans-serif;
     padding: 0;
@@ -9,7 +9,7 @@
 }
 
 html{
-    /*for footer when clicking on my logo the scroll back up is smooth*/
+    /*for footer and when clicking on my logo the scroll back up is smooth*/
     scroll-behavior: smooth;
 }
 
