@@ -902,7 +902,7 @@ SHAPES
         display: none;
     }
 }
-/**/
+
 /*small phones */
 @media(max-width: 600px){
     .title{
