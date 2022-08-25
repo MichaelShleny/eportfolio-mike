@@ -897,12 +897,20 @@ SHAPES
     .modal__half{
         width: 100%;
     }
+
+    .michael__photo__wrapper{
+        display: none;
+    }
 }
-/**/
+/**//**/
 /*small phones */
 @media(max-width: 600px){
     .title{
         font-size: 68px;
+    }
+
+    .michael__photo__wrapper{
+        display: none;
     }
 
     .header__para{
