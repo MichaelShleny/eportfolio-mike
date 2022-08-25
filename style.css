@@ -177,8 +177,22 @@ LANDING PAGE
     height: 100vh;
     
 }
+
+.michael__photo{
+    max-width: 200px;
+    border-radius: 20px;
+    align-items: center;
+}
+
+.michael__photo__wrapper{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 /**/
+
 .header{
+    display: flex;
     z-index: 1;
     position: absolute;
     /*the following 3 lines puts my code in the center of my landing section*/
@@ -190,6 +204,7 @@ LANDING PAGE
     max-width: 1000px;
     padding: 0 30px;
     margin-top: 20px;
+    justify-content: space-between;
 }
 
 .header__para{
