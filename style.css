@@ -179,7 +179,7 @@ LANDING PAGE
 }
 
 .michael__photo{
-    max-width: 200px;
+    max-width: 100px;
     border-radius: 20px;
     align-items: center;
 }
@@ -526,6 +526,7 @@ MODAL
 
 .modal__title{
     font-size: 30px;
+    margin-top: 52px;
 }
 
 .modal__subtitle{
@@ -535,7 +536,7 @@ MODAL
 
 .modal__para{
     font-size: 20px;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     line-height: 1.75;
 }
 
@@ -900,6 +901,7 @@ SHAPES
 
     .michael__photo__wrapper{
         display: none;
+        margin-bottom: 12px;
     }
 }
 /**//**/
