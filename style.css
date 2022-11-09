@@ -517,8 +517,6 @@ MODAL
     transform: scale(0.9);
 }
 
-
-
 .modal__language--img{
     /*set the width to 100% so it looks organized and shrinks in size*/
     width: 100%;
